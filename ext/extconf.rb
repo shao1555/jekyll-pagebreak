@@ -27,6 +27,8 @@ release_url = if RUBY_PLATFORM =~ /x86_64-darwin|arm64-darwin/
     build_release_url("x86_64-apple-darwin", JekyllPagebreak::VERSION)
 elsif RUBY_PLATFORM =~ /x86_64-linux/
     build_release_url("x86_64-unknown-linux-musl", JekyllPagebreak::VERSION)
+elsif RUBY_PLATFORM =~ /aarch64-linux/
+    build_release_url("aarch64-unknown-linux-musl", JekyllPagebreak::VERSION)
 elsif RUBY_PLATFORM =~ /mingw|windows/ # Todo: No architecture check
     build_release_url("x86_64-pc-windows-msvc", JekyllPagebreak::VERSION)
 else
@@ -36,10 +38,10 @@ end
 
 # Download the tar.gz from GitHub
 require 'open-uri'
-if open(release_url)
+if URI.open(release_url)
   puts "Downloading Pagebreak v#{JekyllPagebreak::VERSION} from GitHub"
   open('pagebreak.tar.gz', 'wb') do |file|
-    file << open(release_url).read
+    file << URI.open(release_url).read
   end
 else
   puts "Could not find Pagebreak v#{JekyllPagebreak::VERSION}"
