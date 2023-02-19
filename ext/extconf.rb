@@ -20,7 +20,7 @@ puts "Installing Pagebreak"
 
 # Construct our release url
 def build_release_url(arch, version)
-  "https://github.com/CloudCannon/pagebreak/releases/download/v#{version}/pagebreak-v#{version}-#{arch}.tar.gz"
+  "https://github.com/shao1555/pagebreak/releases/download/v#{version}/pagebreak-v#{version}-#{arch}.tar.gz"
 end
 
 release_url = if RUBY_PLATFORM =~ /x86_64-darwin|arm64-darwin/
