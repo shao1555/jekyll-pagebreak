@@ -28,7 +28,7 @@ release_url = if RUBY_PLATFORM =~ /x86_64-darwin|arm64-darwin/
 elsif RUBY_PLATFORM =~ /x86_64-linux/
     build_release_url("x86_64-unknown-linux-musl", JekyllPagebreak::VERSION)
 elsif RUBY_PLATFORM =~ /aarch64-linux/
-    build_release_url("aarch64-unknown-linux-musl", JekyllPagebreak::VERSION)
+    build_release_url("aarch64-unknown-linux-gnu", JekyllPagebreak::VERSION)
 elsif RUBY_PLATFORM =~ /mingw|windows/ # Todo: No architecture check
     build_release_url("x86_64-pc-windows-msvc", JekyllPagebreak::VERSION)
 else
